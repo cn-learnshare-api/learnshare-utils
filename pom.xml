@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>cn.learnshare.jar</groupId>
+	<artifactId>learnshare-utils</artifactId>
+	<version>1.0.0</version>
+	<name>learnshare-utils</name>
+	<url>https://jar.learnshare.cn</url>
+	<packaging>jar</packaging>
+	<description>common utils libraries in java</description>
+
+	<licenses>
+		<license>
+			<name>the MIT license</name>
+			<url>https://jar.learnshare.cn/LICENSE</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<scm>
+		<connection>scm:git:git@github.com:cn-learnshare-api/learnshare-utils.git</connection>
+		<developerConnection>scm:git:git@github.com:cn-learnshare-api/learnshare-utils.git</developerConnection>
+		<url>https://github.com/cn-learnshare-api/learnshare-utils</url>
+	</scm>
+
+	<issueManagement>
+		<system>GitHub Issues</system>
+		<url>https://github.com/cn-learnshare-api/learnshare-utils/issues</url>
+	</issueManagement>
+
+	<developers>
+		<developer>
+			<id>xuezhifenxiang</id>
+			<name>xuezhifenxiang</name>
+			<email>xuezhifenxiang@163.com</email>
+			<roles>
+				<role>Project Manager</role>
+				<role>Architect</role>
+			</roles>
+		</developer>
+	</developers>
+
+	<dependencies></dependencies>
+
+	<build>
+		<plugins>
+			<!-- 源代码插件 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.2.1</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- JavaDoc 插件 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.9.1</version>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- GPG 签名插件 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>1.5</version>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- 发布插件 -->
+			<plugin>
+				<groupId>org.sonatype.central</groupId>
+				<artifactId>central-publishing-maven-plugin</artifactId>
+				<version>0.4.0</version>
+				<extensions>true</extensions>
+				<configuration>
+					<publishingServerId>xuezhifenxiang</publishingServerId>
+					<tokenAuth>true</tokenAuth>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
