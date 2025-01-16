@@ -1,6 +1,7 @@
 package cn.learnshare.jar.utils.file;
 
 import java.io.*;
+import java.util.Locale;
 
 /**
  * This class is about file manipulation.
@@ -99,6 +100,34 @@ public class FileUtils {
 			e.printStackTrace();
 			return false;
 		}
+	}
+
+	/**
+	 * Used to get the name of a file.
+	 *
+	 * @param filePath the path of the file to be read
+	 * @return the name of the file if it exists, an empty string otherwise
+	 * @since 1.0.1
+	 */
+	public static String getName(String filePath){
+		try {
+			File file = new File(filePath);
+			return file.getName();
+		} catch (Exception e){
+			e.printStackTrace();
+			return "";
+		}
+	}
+
+	/**
+	 * Used to get the type of a file.
+	 *
+	 * @param filePath the path of the file to be read
+	 * @return the type of the file if it exists, an empty string otherwise
+	 * @since 1.0.1
+	 */
+	public static String getType(String filePath){
+		return filePath.substring(filePath.lastIndexOf(".")).substring(1).toLowerCase(Locale.ROOT);
 	}
 
 }
