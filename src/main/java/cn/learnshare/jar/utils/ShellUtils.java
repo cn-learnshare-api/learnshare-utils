@@ -20,7 +20,7 @@ public class ShellUtils {
 	 * @param commands the commands to be executed
 	 * @return true if the command is executed successfully, false otherwise
 	 */
-	private static boolean exec(List<String> commands){
+	public static boolean exec(List<String> commands){
 		ProcessBuilder builder = new ProcessBuilder(commands);
 		InputStreamReader input = null;
 		Process process = null;

@@ -21,7 +21,7 @@ public class DirectoryUtils {
 	 * @return true if the directory is created successfully, false otherwise
 	 * @since 1.0.1
 	 */
-	private static boolean mk(String dirPath){
+	public static boolean mk(String dirPath){
 		try {
 			File f = new File(dirPath);
 			if (!f.getParentFile().exists()) {

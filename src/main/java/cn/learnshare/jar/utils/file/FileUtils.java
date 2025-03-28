@@ -130,4 +130,77 @@ public class FileUtils {
 		return filePath.substring(filePath.lastIndexOf(".")).substring(1).toLowerCase(Locale.ROOT);
 	}
 
+	/**
+	 * Used to get the name of a file without the extension.
+	 *
+	 * @param filePath the path of the file to be read
+	 * @return the name of the file without the extension if it exists, an empty string otherwise
+	 * @since 1.0.2
+	 */
+	public static String getOnlyName(String filePath){
+		String name = filePath.substring(0, filePath.lastIndexOf("."));
+		if(name.contains("/")){
+			name = name.substring(name.lastIndexOf("/") + 1);
+		}
+		if(name.contains("\\")){
+			name = name.substring(name.lastIndexOf("\\") + 1);
+		}
+		return name;
+	}
+
+	/**
+	 * Used to delete a file.
+	 *
+	 * @param filePath the path of the file to be deleted
+	 * @return true if the file is deleted successfully, false otherwise
+	 * @since 1.0.2
+	 */
+	public static boolean delete(String filePath){
+		try {
+			File file = new File(filePath);
+			if(file.exists()){
+				file.delete();
+				return true;
+			} else {
+				return false;
+			}
+		} catch (Exception e){
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	/**
+	 * Used to delete a directory.
+	 *
+	 * @param filePath the path of the directory to be deleted
+	 * @return true if the directory is deleted successfully, false otherwise
+	 * @since 1.0.2
+	 */
+	public static String readContentToString(String filePath) {
+		StringBuilder contentBuilder = new StringBuilder();
+		try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+			String line;
+			while ((line = br.readLine()) != null) {
+				contentBuilder.append(line).append(System.lineSeparator());
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+			return "";
+		}
+		return contentBuilder.toString();
+	}
+
+	/**
+	 * Used to check if a file exists.
+	 *
+	 * @param filePath the path of the file to be checked
+	 * @return true if the file exists, false otherwise
+	 * @since 1.0.2
+	 */
+	public static boolean isExists(String filePath) {
+		File f = new File(filePath);
+		return f.exists();
+	}
+
 }

@@ -7,7 +7,7 @@
 
 	<groupId>cn.learnshare.jar</groupId>
 	<artifactId>learnshare-utils</artifactId>
-	<version>1.0.1</version>
+	<version>1.0.2</version>
 	<name>learnshare-utils</name>
 	<url>https://jar.learnshare.cn</url>
 	<packaging>jar</packaging>
